@@ -20,12 +20,6 @@ function HomepageHeader(): ReactNode {
             to="/docs/quickstart">
             Get Started →
           </Link>
-          <Link
-            className="button button--outline button--primary button--lg"
-            to="https://beta.obelis.ai"
-            style={{marginLeft: '1rem'}}>
-            Launch Beta App
-          </Link>
         </div>
       </div>
     </header>
@@ -159,7 +153,7 @@ function CommunitySection(): ReactNode {
             className="button button--secondary"
             to="https://beta.obelis.ai"
             style={{marginLeft: '1rem'}}>
-            Access Beta App
+            Access App
           </Link>
         </div>
       </div>

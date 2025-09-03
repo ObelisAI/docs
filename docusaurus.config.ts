@@ -60,6 +60,8 @@ const config: Config = {
       logo: {
         alt: 'Obelis',
         src: 'img/logo.png',
+        href: 'https://obelis.ai',
+        target: '_self',
       },
       items: [
         {to: '/docs/quickstart', label: 'Docs', position: 'left'},
@@ -81,7 +83,7 @@ const config: Config = {
           title: 'Company',
           items: [
             { label: 'Website', href: 'https://obelis.ai' },
-            { label: 'Beta App', href: 'https://beta.obelis.ai' },
+            { label: 'App', href: 'https://beta.obelis.ai' },
           ],
         },
         {

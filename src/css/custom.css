@@ -1,63 +1,398 @@
-/* Brand color system */
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Brand color system - Obelis Blue/Purple theme */
 :root {
-  --ifm-color-primary: #2563eb;
-  --ifm-color-primary-dark: #1d4ed8;
-  --ifm-color-primary-darker: #1e40af;
-  --ifm-color-primary-light: #3b82f6;
-  --ifm-code-font-size: 92%;
-  --docusaurus-highlighted-code-line-bg: rgba(0,0,0,.06);
-}
-
-/* Optional: nicer font stack */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-:root { --ifm-font-family-base: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
-
-/* Hero: clean gradient */
-.heroBanner {
-  padding: 5rem 1rem;
-  background: radial-gradient(1200px 480px at 50% -10%, #1f2937 0%, #0f172a 60%, #0b1220 100%);
-  color: #fff;
-  text-align: center;
-}
-.heroBanner h1 { font-weight: 800; letter-spacing: -0.02em; }
-.hero__cta { margin-top: 1.5rem; }
-
-/* Cards */
-.features { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); }
-.card {
-  border: 1px solid #e5e7eb; border-radius: 16px; padding: 1.25rem;
-  transition: transform .12s ease, box-shadow .12s ease;
-  background: #fff;
-}
-.card:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(0,0,0,.06); }
-
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
-
-/* You can override the default Infima variables here. */
-:root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-color-primary: #6366f1; /* Indigo */
+  --ifm-color-primary-dark: #5558e3;
+  --ifm-color-primary-darker: #4f50d9;
+  --ifm-color-primary-darkest: #403eb3;
+  --ifm-color-primary-light: #7678f4;
+  --ifm-color-primary-lighter: #8688f5;
+  --ifm-color-primary-lightest: #a4a6f8;
+  
+  /* Dark violet for content areas */
+  --ifm-color-content: #4c1d95; /* Dark violet */
+  --ifm-color-content-secondary: #5b21b6;
+  --ifm-color-content-inverse: #ddd6fe;
+  
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --docusaurus-highlighted-code-line-bg: rgba(99, 102, 241, 0.1);
+  --ifm-font-family-base: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  --ifm-navbar-background-color: #ffffff;
+  --ifm-background-color: #ffffff;
+  --ifm-footer-background-color: #faf9fc;
+  
+  /* Hero gradient with violet tones */
+  --ifm-hero-background-color: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #7c3aed 100%);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* Dark mode colors */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-primary: #818cf8;
+  --ifm-color-primary-dark: #6366f1;
+  --ifm-color-primary-darker: #5558e3;
+  --ifm-color-primary-darkest: #403eb3;
+  --ifm-color-primary-light: #a4a6f8;
+  --ifm-color-primary-lighter: #b7b9fb;
+  --ifm-color-primary-lightest: #ddd6fe;
+  
+  /* Dark mode backgrounds */
+  --ifm-navbar-background-color: #1e1b4b; /* Dark indigo for navbar */
+  --ifm-background-color: #0f0e1a; /* Very dark background */
+  --ifm-background-surface-color: #1e1b4b; /* Dark violet for cards */
+  --ifm-footer-background-color: #18163a;
+  
+  --docusaurus-highlighted-code-line-bg: rgba(129, 140, 248, 0.2);
+  
+  /* Content colors in dark mode */
+  --ifm-color-content: #a78bfa;
+  --ifm-color-content-secondary: #c4b5fd;
+  --ifm-font-color-base: #e0e7ff;
+  --ifm-heading-color: #f5f3ff;
+}
+
+/* Hero section - with violet gradient */
+.hero--primary {
+  background: var(--ifm-hero-background-color);
+  color: white;
+}
+
+[data-theme='dark'] .hero--primary {
+  background: linear-gradient(135deg, #4c1d95 0%, #5b21b6 50%, #6d28d9 100%);
+}
+
+.hero__title {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.hero__subtitle {
+  font-size: 1.25rem;
+  opacity: 0.95;
+}
+
+@media (max-width: 768px) {
+  .hero__title {
+    font-size: 2rem;
+  }
+  .hero__subtitle {
+    font-size: 1.1rem;
+  }
+}
+
+/* Navbar customization */
+.navbar {
+  border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+[data-theme='dark'] .navbar {
+  border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.navbar__logo {
+  height: 2rem;
+  margin-right: 0.5rem;
+}
+
+.navbar__brand {
+  font-weight: 700;
+}
+
+[data-theme='dark'] .navbar__title {
+  color: #e0e7ff;
+}
+
+[data-theme='dark'] .navbar__link {
+  color: #c4b5fd;
+}
+
+[data-theme='dark'] .navbar__link:hover {
+  color: #ffffff;
+}
+
+/* Card improvements with violet touches */
+.card {
+  border: 1px solid rgba(99, 102, 241, 0.15);
+  box-shadow: 0 1px 3px rgba(76, 29, 149, 0.05);
+  transition: all 0.2s ease;
+  background: #ffffff;
+}
+
+[data-theme='dark'] .card {
+  background: var(--ifm-background-surface-color);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
+  border-color: var(--ifm-color-primary);
+}
+
+[data-theme='dark'] .card:hover {
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+  border-color: var(--ifm-color-primary-light);
+}
+
+/* Buttons with violet theme */
+.button--primary {
+  background-color: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+}
+
+.button--primary:hover {
+  background-color: var(--ifm-color-primary-dark);
+  border-color: var(--ifm-color-primary-dark);
+}
+
+.button--outline.button--primary {
+  color: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+  background-color: transparent;
+}
+
+.button--outline.button--primary:hover {
+  background-color: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+  color: white;
+}
+
+.button--secondary {
+  background-color: #ddd6fe;
+  border-color: #ddd6fe;
+  color: #4c1d95;
+}
+
+.button--secondary:hover {
+  background-color: #c4b5fd;
+  border-color: #c4b5fd;
+  color: #4c1d95;
+}
+
+[data-theme='dark'] .button--secondary {
+  background-color: rgba(139, 92, 246, 0.2);
+  border-color: rgba(139, 92, 246, 0.3);
+  color: #c4b5fd;
+}
+
+[data-theme='dark'] .button--secondary:hover {
+  background-color: rgba(139, 92, 246, 0.3);
+  border-color: rgba(139, 92, 246, 0.4);
+  color: #e0e7ff;
+}
+
+/* Footer */
+.footer {
+  background-color: var(--ifm-footer-background-color);
+  border-top: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+[data-theme='dark'] .footer {
+  background-color: var(--ifm-footer-background-color);
+  border-top: 1px solid rgba(139, 92, 246, 0.2);
+  color: #c4b5fd;
+}
+
+[data-theme='dark'] .footer__title {
+  color: #e0e7ff;
+}
+
+[data-theme='dark'] .footer__link-item {
+  color: #a78bfa;
+}
+
+[data-theme='dark'] .footer__link-item:hover {
+  color: #c4b5fd;
+}
+
+/* Code blocks */
+.prism-code {
+  background: rgba(99, 102, 241, 0.03) !important;
+  border: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+[data-theme='dark'] .prism-code {
+  background: rgba(30, 27, 75, 0.5) !important;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+/* Links with violet accent */
+a {
+  color: var(--ifm-color-primary);
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--ifm-color-primary-dark);
+  text-decoration: underline;
+}
+
+[data-theme='dark'] a {
+  color: #a78bfa;
+}
+
+[data-theme='dark'] a:hover {
+  color: #c4b5fd;
+}
+
+/* Documentation-focused improvements */
+.markdown h1 {
+  border-bottom: 2px solid rgba(99, 102, 241, 0.15);
+  padding-bottom: 0.5rem;
+}
+
+[data-theme='dark'] .markdown h1 {
+  border-bottom: 2px solid rgba(139, 92, 246, 0.2);
+}
+
+.markdown h2 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--ifm-heading-color);
+}
+
+.markdown h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--ifm-heading-color);
+}
+
+/* Table of contents */
+.table-of-contents__link--active {
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+}
+
+.table-of-contents__link:hover {
+  color: var(--ifm-color-primary);
+}
+
+[data-theme='dark'] .table-of-contents__link {
+  color: #a78bfa;
+}
+
+[data-theme='dark'] .table-of-contents__link:hover,
+[data-theme='dark'] .table-of-contents__link--active {
+  color: #c4b5fd;
+}
+
+/* Admonitions with violet colors */
+.admonition-note {
+  border-left-color: #6366f1;
+  background-color: rgba(99, 102, 241, 0.03);
+}
+
+[data-theme='dark'] .admonition-note {
+  border-left-color: #818cf8;
+  background-color: rgba(129, 140, 248, 0.1);
+}
+
+.admonition-tip {
+  border-left-color: #8b5cf6;
+  background-color: rgba(139, 92, 246, 0.03);
+}
+
+[data-theme='dark'] .admonition-tip {
+  border-left-color: #a78bfa;
+  background-color: rgba(167, 139, 250, 0.1);
+}
+
+/* Pagination */
+.pagination-nav__link {
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  transition: all 0.2s ease;
+}
+
+[data-theme='dark'] .pagination-nav__link {
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  background: var(--ifm-background-surface-color);
+}
+
+.pagination-nav__link:hover {
+  border-color: var(--ifm-color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
+}
+
+[data-theme='dark'] .pagination-nav__link:hover {
+  border-color: var(--ifm-color-primary-light);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2);
+}
+
+/* Sidebar */
+.menu {
+  font-weight: 500;
+}
+
+.menu__link--active {
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+}
+
+.menu__link:hover {
+  color: var(--ifm-color-primary);
+}
+
+[data-theme='dark'] .menu__link {
+  color: #c4b5fd;
+}
+
+[data-theme='dark'] .menu__link:hover {
+  color: #e0e7ff;
+}
+
+[data-theme='dark'] .menu__link--active {
+  color: #ffffff;
+  background-color: rgba(139, 92, 246, 0.2);
+}
+
+/* Sidebar background in dark mode */
+[data-theme='dark'] .theme-doc-sidebar-container {
+  background: rgba(30, 27, 75, 0.5);
+  border-right: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+/* Search */
+.navbar__search-input {
+  border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.navbar__search-input:focus {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.1);
+}
+
+[data-theme='dark'] .navbar__search-input {
+  background: rgba(30, 27, 75, 0.5);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  color: #e0e7ff;
+}
+
+[data-theme='dark'] .navbar__search-input:focus {
+  border-color: var(--ifm-color-primary-light);
+  box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2);
+}
+
+/* DocSearch modal theming */
+[data-theme='dark'] .DocSearch {
+  --docsearch-primary-color: var(--ifm-color-primary);
+  --docsearch-highlight-color: var(--ifm-color-primary);
+  --docsearch-muted-color: #a78bfa;
+  --docsearch-container-background: rgba(15, 14, 26, 0.9);
+  --docsearch-modal-background: var(--ifm-background-surface-color);
+  --docsearch-searchbox-background: rgba(30, 27, 75, 0.5);
+  --docsearch-hit-background: rgba(30, 27, 75, 0.3);
+  --docsearch-footer-background: var(--ifm-background-surface-color);
+}
+
+/* Community section background */
+[data-theme='light'] section[style*="background-color"] {
+  background-color: rgba(99, 102, 241, 0.03) !important;
+}
+
+[data-theme='dark'] section[style*="background-color"] {
+  background-color: rgba(30, 27, 75, 0.3) !important;
 }

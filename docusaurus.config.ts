@@ -6,7 +6,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'Obelis Docs',
-  tagline: 'Deploy cloud apps faster with AI assistance',
+  tagline: 'Manage your infrastructure with your AI DevOps Engineer',
   favicon: 'img/favicon.png',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -59,11 +59,12 @@ const config: Config = {
       title: 'Obelis',
       logo: {
         alt: 'Obelis',
-        src: 'img/logo.svg',
+        src: 'img/logo.png',
       },
       items: [
         {to: '/docs/quickstart', label: 'Docs', position: 'left'},
-        {href: 'https://app.obelis.ai', label: 'App', position: 'right'},
+        {href: 'https://beta.obelis.ai', label: 'Beta App', position: 'right'},
+        {href: 'https://discord.gg/VAeT5Q3hbc', label: 'Discord', position: 'right'},
       ],
     },
     colorMode: { defaultMode: 'light', respectPrefersColorScheme: true },
@@ -80,6 +81,13 @@ const config: Config = {
           title: 'Company',
           items: [
             { label: 'Website', href: 'https://obelis.ai' },
+            { label: 'Beta App', href: 'https://beta.obelis.ai' },
+          ],
+        },
+        {
+          title: 'Community',
+          items: [
+            { label: 'Discord', href: 'https://discord.gg/VAeT5Q3hbc' },
           ],
         },
       ],

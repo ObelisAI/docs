@@ -60,7 +60,7 @@ const config: Config = {
       logo: {
         alt: 'Obelis',
         src: 'img/logo.png',
-        href: 'https://obelis.ai',
+        href: '/',
         target: '_self',
       },
       items: [
